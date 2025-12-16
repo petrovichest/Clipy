@@ -3,6 +3,9 @@ name: Build DMG
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build-dmg:
     runs-on: macos-13
