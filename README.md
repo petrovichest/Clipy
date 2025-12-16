@@ -30,6 +30,12 @@ __Distribution Site__ : <https://clipy-app.com>
 2. Open `Clipy.xcworkspace` on Xcode.
 3. build.
 
+### How to Build a DMG
+1. Ensure dependencies are installed: `bundle install --path=vendor/bundle && bundle exec pod install`
+2. Run the packaging script on macOS: `./scripts/build_dmg.sh`
+3. The resulting `Clipy.dmg` will be created under the `build/` directory.  
+   Alternatively, trigger the `Build DMG` GitHub Actions workflow (`workflow_dispatch`) to generate and download the DMG artifact without setting up the environment locally.
+
 ### Contributing
 1. Fork it ( https://github.com/Clipy/Clipy/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
