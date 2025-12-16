@@ -180,7 +180,7 @@ private extension MenuManager {
         snippetMenu = NSMenu(title: Constants.Menu.snippet)
 
         addHistoryItems(clipMenu!)
-        addHistoryItems(historyMenu!)
+        addHistoryItems(historyMenu!, flatten: true)
 
         addSnippetItems(clipMenu!, separateMenu: true)
         addSnippetItems(snippetMenu!, separateMenu: false)
@@ -257,10 +257,10 @@ private extension MenuManager {
 
 // MARK: - Clips
 private extension MenuManager {
-    func addHistoryItems(_ menu: NSMenu) {
-        let placeInLine = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.numberOfItemsPlaceInline)
-        let placeInsideFolder = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.numberOfItemsPlaceInsideFolder)
+    func addHistoryItems(_ menu: NSMenu, flatten: Bool = false) {
         let maxHistory = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.maxHistorySize)
+        let placeInLine = flatten ? maxHistory : AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.numberOfItemsPlaceInline)
+        let placeInsideFolder = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.numberOfItemsPlaceInsideFolder)
 
         // History title
         let labelItem = NSMenuItem(title: L10n.history, action: nil)
