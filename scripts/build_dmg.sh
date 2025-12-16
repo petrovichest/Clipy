@@ -8,7 +8,7 @@ APP_PATH="${APP_PRODUCTS_PATH}/Clipy.app"
 DMG_STAGING="${ROOT_DIR}/build/dmg/Clipy"
 DMG_OUTPUT="${ROOT_DIR}/build/Clipy.dmg"
 
-rm -rf "${ROOT_DIR}/build"
+rm -rf "${DERIVED_DATA_PATH}" "${DMG_STAGING}" "${DMG_OUTPUT}"
 mkdir -p "${DMG_STAGING}"
 
 xcodebuild \
